@@ -1,0 +1,30 @@
+﻿# REQUIRES-PROPERTIES-FILE - # Do not remove this comment!
+CREATE OR REPLACE WRAPPER JDBC bv_vb_json_data1
+    DATASOURCENAME=ds_ora11g_vb
+    SCHEMANAME='${databases.admin.views.jdbc.bv_vb_json_data1.SCHEMANAME}' 
+    RELATIONNAME='VB_JSON_DATA1' 
+    OUTPUTSCHEMA (
+        id = 'ID' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='0', sourcetyperadix='10', sourcetypesize='38', sourcetypeid='3', sourcetypename='NUMBER')  SORTABLE,
+        var1 = 'VAR1' :'java.lang.String' (OPT) (sourcetyperadix='10', sourcetypesize='10', sourcetypeid='12', sourcetypename='VARCHAR2')  SORTABLE,
+        coupon = 'COUPON' :'java.lang.Double' (OPT) (sourcetyperadix='10', sourcetypesize='126', sourcetypeid='6', sourcetypename='FLOAT')  SORTABLE
+    );
+
+CREATE OR REPLACE TABLE bv_vb_json_data1 I18N au_cst (
+        id:decimal (sourcetypeid = '3', sourcetyperadix = '10', sourcetypedecimals = '0', sourcetypesize = '38'),
+        var1:text (sourcetypeid = '12', sourcetyperadix = '10', sourcetypesize = '10'),
+        coupon:decimal (sourcetypeid = '8', sourcetyperadix = '10', sourcetypesize = '126')
+    )
+    CACHE OFF
+    TIMETOLIVEINCACHE DEFAULT
+    ADD SEARCHMETHOD bv_vb_json_data1(
+        I18N au_cst
+        CONSTRAINTS (
+             ADD id (any) OPT ANY
+             ADD var1 (any) OPT ANY
+             ADD coupon (any) OPT ANY
+        )
+        OUTPUTLIST (coupon, id, var1
+        )
+        WRAPPER (jdbc bv_vb_json_data1)
+    );
+

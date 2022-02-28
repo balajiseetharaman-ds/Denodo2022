@@ -1,0 +1,8 @@
+﻿CREATE OR REPLACE VIEW p_bv_vb_json_data1 (
+    coupon (sourcetypedecimals = '20', sourcetypesize = '38', sourcetypeid = '3')
+)
+ AS SELECT bv_vb_json_data1.id AS id, bv_vb_json_data1.var1 AS var1, cast('decimal', bv_vb_json_data1.coupon) AS coupon FROM bv_vb_json_data1 AS bv_vb_json_data1 INNER JOIN bv_vb_json_data2 AS bv_vb_json_data2 ON bv_vb_json_data1.id = bv_vb_json_data2.id ;
+
+ALTER VIEW p_bv_vb_json_data1
+ LAYOUT (bv_vb_json_data1 = [20, 20, 200, 85], bv_vb_json_data2 = [383, 43, 200, 85]);
+

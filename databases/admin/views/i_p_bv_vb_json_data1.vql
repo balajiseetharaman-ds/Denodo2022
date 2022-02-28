@@ -1,0 +1,10 @@
+﻿CREATE OR REPLACE INTERFACE VIEW i_p_bv_vb_json_data1 (
+        id:decimal (sourcetypedecimals = '0', sourcetyperadix = '10', sourcetypesize = '38', sourcetypeid = '3'),
+        var1:text (sourcetyperadix = '10', sourcetypesize = '10', sourcetypeid = '12'),
+        coupon:decimal (sourcetypesize = '126', sourcetypeid = '8')
+    )
+    SET IMPLEMENTATION p_bv_vb_json_data1;
+
+ALTER VIEW i_p_bv_vb_json_data1
+ LAYOUT (p_bv_vb_json_data1 = [334, 63, 200, 85]);
+

@@ -1,0 +1,4 @@
+﻿/databases/admin/datasources/jdbc/ds_ora11g_vb.vql
+/databases/admin/views/bv_vb_json_data1.vql
+/databases/admin/views/bv_vb_json_data2.vql
+/databases/admin/views/p_bv_vb_json_data1.vql
